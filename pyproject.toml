@@ -1,0 +1,10 @@
+[project]
+name = "gaussian-wave-packet-tunneling"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jax>=0.6.2",
+    "plotly>=6.6.0",
+]

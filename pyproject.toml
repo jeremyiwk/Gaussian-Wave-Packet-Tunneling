@@ -8,6 +8,7 @@ dependencies = [
     "diffrax>=0.7.0",
     "equinox>=0.13.6",
     "jax>=0.6.2",
+    "matplotlib>=3.10.8",
     "plotly>=6.6.0",
 ]
 
@@ -16,6 +17,7 @@ select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101"]
+"scripts/*" = ["ALL"]
 
 [dependency-groups]
 dev = [

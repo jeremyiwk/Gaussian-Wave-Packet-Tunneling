@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Function
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 import equinox as eqx
 import jax
@@ -24,8 +27,8 @@ class ScatteringSim(eqx.Module):
 
     def __init__(
         self: ScatteringSim,
-        potential: Function,
-        initial_condition: Function,
+        potential: Callable,
+        initial_condition: Callable,
         x_domain: tuple[float, float, int],
         t_domain: tuple[float, float, float],
     ) -> None:

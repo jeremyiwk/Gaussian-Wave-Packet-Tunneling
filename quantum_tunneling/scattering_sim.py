@@ -58,7 +58,11 @@ class ScatteringSim(eqx.Module):
     @jax.jit
     def schrodinger(self, t: float, psi: jax.Array, args: tuple[Any, ...]) -> jax.Array:  # noqa: ARG002
         """RHS of schrodinger eq."""
-        return 1j * (spectral_d2(psi, self.dx) + self.potential * psi)
+        dpsidt = 1j * (spectral_d2(psi, self.dx) + self.potential * psi)
+        # apply zero BCs
+        dpsidt = dpsidt.at[0].set(0.0)
+        dpsidt = dpsidt.at[-1].set(0.0)
+        return dpsidt
 
     def solve(self) -> jax.Array:
         """Solve the simulation."""

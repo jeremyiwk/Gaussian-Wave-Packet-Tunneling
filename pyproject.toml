@@ -16,6 +16,7 @@ dependencies = [
 select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
+"*/" = ["PLR0913"]
 "tests/*" = ["S101"]
 "scripts/*" = ["ALL"]
 

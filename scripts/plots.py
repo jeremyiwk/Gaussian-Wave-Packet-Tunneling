@@ -1,5 +1,3 @@
-
-
 from quantum_tunneling.derivatives import finite_difference_d2, spectral_d2
 
 import jax
@@ -7,7 +5,7 @@ import jax.numpy as jnp
 
 import matplotlib.pyplot as plt
 
-jax.config.update('jax_enable_x64', True)
+jax.config.update("jax_enable_x64", True)
 
 x_min = -jnp.pi * 10.0
 x_max = jnp.pi * 10.0

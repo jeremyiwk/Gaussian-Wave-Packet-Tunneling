@@ -13,10 +13,12 @@ jax.config.update("jax_enable_x64", True)  # noqa: FBT003
 
 
 def _gaussian(x: float) -> float:
-    return jnp.exp(-x**2)
+    return jnp.exp(-(x**2))
+
 
 def _d2_gaussian(x: float) -> float:
-    return (4 * x ** 2 - 2) * _gaussian(x)
+    return (4 * x**2 - 2) * _gaussian(x)
+
 
 @pytest.mark.parametrize(
     "func",
@@ -42,4 +44,3 @@ class TestDerivatives:
         err = l2_rel_err(sym_df, num_df)
 
         assert jnp.isclose(err, 0.0, atol=1e-4)
-
